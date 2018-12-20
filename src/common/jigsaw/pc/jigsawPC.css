@@ -1,0 +1,119 @@
+.block {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sliderContainerPC {
+  position: relative;
+  text-align: center;
+  width: 360px;
+  height: 48px;
+  line-height: 50px;
+  background:rgba(242,243,255,1);
+  font-size:14px;
+  font-family:SourceHanSansCN-Regular;
+  font-weight:400;
+  color:rgba(181,186,219,1);
+  border:1px solid rgba(164,170,218,1);
+}
+
+.sliderContainerPC_active .sliderPC {
+  top: -3px;
+}
+
+.sliderContainerPC_active .sliderMaskPC {
+  top: -1px;
+  height: 48px;
+  border-width: 1px;
+  border-right: 0
+}
+
+.sliderContainerPC_success .sliderPC {
+  top: -3px;
+  background: url(../img/btn_slider_success.png) !important;
+}
+
+.sliderContainerPC_success .sliderMaskPC {
+  top: -1px;
+  height: 48px;
+  border: 1px solid #52CCBA;
+  border-right: 0;
+  background:rgba(242,243,255,1);
+}
+
+.sliderContainerPC_success .sliderIconPC {
+  background-position: 0 0 !important;
+}
+
+.sliderContainerPC_fail .sliderPC {
+
+  top: -3px;
+  background: url(../img/btn_slider_error.png) !important;
+}
+
+.sliderContainerPC_fail .sliderMaskPC {
+  top: -1px;
+  height: 48px;
+  border: 1px solid #f57a7a;
+  border-right: 0;
+  background:rgba(242,243,255,1);
+}
+
+.sliderContainerPC_fail .sliderIconPC {
+  background-position: 0 -83px !important;
+}
+.sliderContainerPC_active .sliderTextPC, .sliderContainerPC_success .sliderTextPC, .sliderContainerPC_fail .sliderText {
+  display: none;
+}
+
+.sliderMaskPC {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 50px;
+  border: 0 solid #1991FA;
+  background: #D1E9FE;
+}
+
+.sliderPC {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 67px;
+  height: 57px;
+  background: url(../img/btn_slider_nor.png);
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); */
+  cursor: pointer;
+  transition: background .2s linear;
+}
+
+.sliderPC:hover {
+  background: url(../img/btn_slider_hover.png);
+}
+
+.sliderPC:hover .sliderIcon {
+  background-position: 0 -13px;
+}
+
+/* .sliderIcon {
+  position: absolute;
+  top: 21px;
+  left: 18px;
+  width: 14px;
+  height: 10px;
+  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -26px;
+  background-size: 34px 471px;
+} */
+
+.refreshIconPC {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 111;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -437px;
+  background-size: 34px 471px;
+}
