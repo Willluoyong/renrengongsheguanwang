@@ -9,7 +9,7 @@
                 <span class="title">{{item.coinTypeId}}-{{item.title}}</span>
                 <saleRate :percent='item.percent'></saleRate>
             </div>
-            <div class="goods_arg" @click="goMachineDetail(item.machineId)">
+            <div class="goods_arg" @click="goMachineDetail(item.machineId,item.title)">
                 <div class="left">
                     <div class="sale_price">{{item.price}}<span class="unit"></span></div>
                     <p>每83GH/s算力价格</p>
@@ -62,8 +62,16 @@ export default {
             console.log(err);
             })
         },
-        goMachineDetail(machineId){
+        goMachineDetail(machineId,title){
+            // console.log(title);
+            // if (/抵押/.test(title)) {
+            //      this.$router.push({path:'/machinePledge',query:{"machineId":machineId}})
+            // } else {
+            //     this.$router.push({path:'/machineDetailM',query:{"machineId":machineId}})
+            // }
+            // this.$router.push({path:'/machinePledge',query:{"machineId":machineId}})
             this.$router.push({path:'/machineDetailM',query:{"machineId":machineId}})
+           
         }
     },
     computed: {

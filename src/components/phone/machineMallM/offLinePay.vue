@@ -1,7 +1,7 @@
 <template>
     <div id="offLinePay" >
         <div class="top"></div>
-        <div class="header"><span class="back" @click="toggleChooseFace"></span ><span class="title">BTC-神级1号</span></div>
+        <div class="header"><span class="back" @click="toggleChooseFace"></span ><span class="title">{{coinTypeId}}-{{title}}</span></div>
         <div class="timer">请确认购买信息订单于<span id="time"></span>分后关闭。</div>   
         <div class="card_info">
             <div class="bank_container"><span class="bank_icon"></span><span class="bank_name">{{bankName}}</span></div>
@@ -75,6 +75,8 @@ export default {
             cardholder:'',
             bankCardNo:'',
             address:'',
+            coinTypeId:'',
+            title:'',
         }
 
     },
@@ -98,7 +100,7 @@ export default {
             order.append('orderNo',this.orderNo)
             offlinePaymentOrder(order).then(res=>{
                 if (res.data.status == 200) {
-                    this.$router.push({path:'/paySuccess'})
+                    this.$router.push({path:'/paySuccess',query:{"coinTypeId":this.coinTypeId,"title":this.title}})
                     clearInterval(this.clock);
                 }else{
                     console.log(res.data.message);
@@ -152,6 +154,8 @@ export default {
         this.cardholder = this.$route.query.cardholder
         this.address = this.$route.query.address
         this.bankCardNo = this.$route.query.bankCardNo
+        this.coinTypeId = this.$route.query.coinTypeId
+        this.title = this.$route.query.title
         this.timer();
     },
 
@@ -246,7 +250,7 @@ body{
             }
             .bank_name{
                 margin-top: 0.61rem; 
-                width:2.8rem;
+                width:6.8rem;
                 height:0.33rem;
                 line-height: 0.33rem;
                 font-size:0.33rem;

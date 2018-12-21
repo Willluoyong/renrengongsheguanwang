@@ -1,7 +1,7 @@
 <template>
     <div id="offLinePay" >
         <div class="top"></div>
-        <div class="header"><span class="back"  @click="toggleChooseFace"></span ><span class="title">BTC-神级1号</span></div>
+        <div class="header"><span class="back"  @click="toggleChooseFace"></span ><span class="title">{{coinTypeId}}-{{title}}</span></div>
         <div class="timer">请扫描二维码付款订单于<span id="time"></span>分后关闭。</div>
         <div class="card_info">
             <div class="id">支付宝帐号：412641803@qq.com</div>
@@ -71,6 +71,8 @@ export default {
             amount:'',
             allPrice:'',
             orderNo:'',
+            coinTypeId:'',
+            title:'',
         }
 
     },
@@ -95,7 +97,7 @@ export default {
             order.append('orderNo',this.orderNo)
             offlinePaymentOrder(order).then(res=>{
                 if (res.data.status == 200) {
-                    this.$router.push({path:'/paySuccess'})
+                    this.$router.push({path:'/paySuccess',query:{"coinTypeId":this.coinTypeId,"title":this.title}})
                     clearInterval(this.clock);
                 }else{
                     console.log(res.data.message);
@@ -147,6 +149,8 @@ export default {
         this.amount = this.$route.query.amount
         this.allPrice = this.$route.query.allPrice
         this.orderNo = this.$route.query.orderNo
+        this.coinTypeId = this.$route.query.coinTypeId
+        this.title = this.$route.query.title
     },
     components:{
     }
@@ -195,8 +199,8 @@ body{
             font-weight:400;
             color:rgba(51,51,51,1);
             position: absolute;
-            margin-left:3.69rem;
-            
+            margin-left:30%;
+            // text-align: center;
         }
     }
     .timer{

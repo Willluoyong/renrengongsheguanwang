@@ -1,7 +1,7 @@
 <template>
     <div id="offLinePay" >
         <div class="top"></div>
-        <div class="header"><span class="back" @click="backLastPage"></span ><span class="title">BTC-神级1号</span></div>
+        <div class="header"><span class="back" @click="backLastPage"></span ><span class="title">{{coinTypeId}}-{{title}}</span></div>
         <div class="main">
             <div class="first">
                 <span class="success_icon"></span>
@@ -23,6 +23,8 @@ export default {
     data(){
         return{
             shadeFlag:false,
+            coinTypeId:'',
+            title:'',
         }
 
     },
@@ -33,6 +35,11 @@ export default {
         backLastPage() {
             this.$router.push({path:'/'});
         },
+    },
+    created() {
+        this.coinTypeId = this.$route.query.coinTypeId;
+        this.title = this.$route.query.title
+        console.log(this.coinTypeId);
     },
 
     components:{
@@ -82,7 +89,7 @@ body{
             font-weight:400;
             color:rgba(51,51,51,1);
             position: absolute;
-            margin-left:3.69rem;
+            margin-left:30%;
             
         }
     }

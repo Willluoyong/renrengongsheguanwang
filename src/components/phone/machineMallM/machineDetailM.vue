@@ -7,9 +7,9 @@
         <span class="title">{{coinTypeId}}-{{title}}</span>
       </div>
       <mt-swipe :auto="4000" class="swipe_box">
-        <mt-swipe-item class="first" :style="{backgroundImage: 'url(' +'https://cococo.org/commune/'+this.mainImage + ')' }">1</mt-swipe-item>
-        <mt-swipe-item class="middle" :style="{backgroundImage: 'url(' +'https://cococo.org/commune/'+this.subImages[0] + ')' }">2</mt-swipe-item>
-        <mt-swipe-item class="last" :style="{backgroundImage: 'url(' +'https://cococo.org/commune/'+this.subImages[0] + ')' }">3</mt-swipe-item>
+        <mt-swipe-item class="first" :style="{backgroundImage: 'url(' +'https://cococo.org/commune/'+this.mainImage + ')' }"></mt-swipe-item>
+        <mt-swipe-item class="middle" :style="{backgroundImage: 'url(' +'https://cococo.org/commune/'+this.subImages[0] + ')' }"></mt-swipe-item>
+        <mt-swipe-item class="last" :style="{backgroundImage: 'url(' +'https://cococo.org/commune/'+this.subImages[0] + ')' }"></mt-swipe-item>
       </mt-swipe>
       <div class="goods">
         <div class="goods_name">
@@ -210,7 +210,7 @@ export default {
     changNumber(e){
       let temp=Number(e.target.value);
       // console.log(typeof temp)
-      if (1<temp&&temp<=this.limitShop) {
+      if (1<=temp&&temp<=this.limitShop) {
           this.num1 =temp;
           this.handleChange();
           // setTimeout(this.handleChange(), 3000)
@@ -261,10 +261,10 @@ export default {
           let address=res.data.data.cards.address
           if (this.flag==false) {
               // console.log("这是支付宝付款");
-              this.$router.push({path:'/zhifubaoPay',query:{"orderNo":orderNo,"referenceNum":this.referenceNum,"phone":this.phone,"recommendCode":this.recommendUser,"amount":this.acount,"allPrice":this.allPrice}})
+              this.$router.push({path:'/zhifubaoPay',query:{"orderNo":orderNo,"coinTypeId":this.coinTypeId,"title":this.title,"referenceNum":this.referenceNum,"phone":this.phone,"recommendCode":this.recommendUser,"amount":this.acount,"allPrice":this.allPrice}})
               
           } else {
-              this.$router.push({path:'/offLinePay',query:{"orderNo":orderNo,"bankName":bankName,"cardholder":cardholder,"bankCardNo":bankCardNo,"address":address,"referenceNum":this.referenceNum,"phone":this.phone,"recommendCode":this.recommendUser,"amount":this.acount,"allPrice":this.allPrice}})
+              this.$router.push({path:'/offLinePay',query:{"orderNo":orderNo,"bankName":bankName,"cardholder":cardholder,"bankCardNo":bankCardNo,"address":address,"coinTypeId":this.coinTypeId,"title":this.title,"referenceNum":this.referenceNum,"phone":this.phone,"recommendCode":this.recommendUser,"amount":this.acount,"allPrice":this.allPrice}})
           }
 
         }else{
@@ -284,8 +284,8 @@ export default {
 
     //进入支付页面。
     goPayface(){
-      if (1<Number(this.num1)&&Number(this.num1)<=this.limitShop) {
-         this.machineBuy();
+      if (1<=Number(this.num1)&&Number(this.num1)<=this.limitShop) {
+         this.machineBuy();    
       } else {
         Toast({
             message: "输入数据不在限购内！",

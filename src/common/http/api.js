@@ -2,6 +2,7 @@ import axios from 'axios'
 import store from '@/common/vuex/store'
 
 // axios.defaults.baseURL = "http://192.168.2.114:9981/commune-dev/"
+// axios.defaults.baseURL = "https://cococo.org/commune-dev/"
 export default {
   resolveGet(url) {
     return new Promise((resolve, reject) => {

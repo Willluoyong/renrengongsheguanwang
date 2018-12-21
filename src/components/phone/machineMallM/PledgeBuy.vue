@@ -218,14 +218,14 @@ body {
         }
       }
       .mainImgBox {
-        // border: blue solid 1px;
+        border: blue solid 1px;
         height: 3.6rem;
         margin-top: 0.83rem;
         img {
           display: inline-block;
           width: 2.78rem;
           height: 2.78rem;
-          border: saddlebrown solid 1px;
+          border:rebeccapurple solid 1px;
           margin-left: 0.44rem;
         }
         .container {
