@@ -718,7 +718,7 @@ import retrieve_passwordVue from '../phone/retrieve_password.vue';
     margin-top: 69px;
     margin-bottom: 59px;
     /*background-color: red;*/
-    background: url("../../assets/pc/logo@2x.png") no-repeat center;
+    // background: url("../../assets/pc/logo@2x.png") no-repeat center;
     background-size: cover;
   }
   .phone_no{
